@@ -7,3 +7,8 @@
   --font-inter: 'Inter', sans-serif;
   --font-outfit: 'Outfit', sans-serif;
 }
+
+/* Set DM Sans as the global font */
+html, body {
+  font-family: var(--font-dm-sans);
+}
