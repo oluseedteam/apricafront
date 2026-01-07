@@ -5,7 +5,7 @@ const Search = () => {
     <div className="flex flex-col items-center justify-center w-full gap-4 p-4">
 
       {/* --- Search Bar --- */}
-      <div className="flex items-center gap-3 w-full max-w-xl px-5 py-3 bg-white rounded-full shadow-lg border border-gray-200">
+      <div className="flex items-center gap-3 w-full max-w-xl px-5 py-3 bg-white rounded-full shadow-lg border border-gray-500">
 
         {/* Input */}
         <input
