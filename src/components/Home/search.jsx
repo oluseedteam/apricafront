@@ -1,6 +1,36 @@
 import React from "react";
 
 const Search = () => {
+  // Comprehensive list of major world languages
+  const languages = [
+    "Afrikaans", "Albanian", "Amharic", "Arabic", "Armenian", "Assamese", "Aymara", "Azerbaijani",
+    "Bambara", "Basque", "Belarusian", "Bengali", "Bhojpuri", "Bosnian", "Bulgarian", "Burmese",
+    "Catalan", "Cebuano", "Chichewa", "Chinese (Simplified)", "Chinese (Traditional)", "Corsican", "Croatian", "Czech",
+    "Danish", "Dhivehi", "Dogri", "Dutch",
+    "English", "Esperanto", "Estonian", "Ewe",
+    "Filipino", "Finnish", "French", "Frisian",
+    "Galician", "Georgian", "German", "Greek", "Guarani", "Gujarati",
+    "Haitian Creole", "Hausa", "Hawaiian", "Hebrew", "Hindi", "Hmong", "Hungarian",
+    "Icelandic", "Igbo", "Ilocano", "Indonesian", "Irish", "Italian",
+    "Japanese", "Javanese",
+    "Kannada", "Kazakh", "Khmer", "Kinyarwanda", "Konkani", "Korean", "Krio", "Kurdish (Kurmanji)", "Kurdish (Sorani)", "Kyrgyz",
+    "Lao", "Latin", "Latvian", "Lingala", "Lithuanian", "Luganda", "Luxembourgish",
+    "Macedonian", "Maithili", "Malagasy", "Malay", "Malayalam", "Maltese", "Maori", "Marathi", "Meiteilon (Manipuri)", "Mizo", "Mongolian", "Myanmar (Burmese)",
+    "Nepali", "Norwegian",
+    "Odia (Oriya)", "Oromo",
+    "Pashto", "Persian", "Polish", "Portuguese", "Punjabi",
+    "Quechua",
+    "Romanian", "Russian",
+    "Samoan", "Sanskrit", "Scots Gaelic", "Sepedi", "Serbian", "Sesotho", "Shona", "Sindhi", "Sinhala", "Slovak", "Slovenian", "Somali", "Spanish", "Sundanese", "Swahili", "Swedish",
+    "Tajik", "Tamil", "Tatar", "Telugu", "Thai", "Tigrinya", "Tsonga", "Turkish", "Turkmen", "Twi",
+    "Ukrainian", "Urdu", "Uyghur", "Uzbek",
+    "Vietnamese",
+    "Welsh",
+    "Xhosa",
+    "Yiddish", "Yoruba",
+    "Zulu"
+  ];
+
   return (
     <div className="flex flex-col items-center justify-center w-full gap-4 p-4">
 
@@ -48,13 +78,17 @@ const Search = () => {
       {/* --- Dropdowns Row --- */}
       <div className="flex justify-between w-full max-w-xl px-2">
 
-        {/* Left Dropdown */}
-        <div className="relative group">
-          <select className="appearance-none bg-white border border-gray-300 text-gray-700 text-sm rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-black/10 shadow-sm cursor-pointer hover:border-gray-400 transition">
-            <option>English (Naija)</option>
-            <option>Yoruba</option>
-            <option>Igbo</option>
-            <option>Hausa</option>
+        {/* Left Dropdown (All Languages) */}
+        <div className="relative group w-[48%]">
+          <select 
+            className="w-full appearance-none bg-white border border-gray-300 text-gray-700 text-sm rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-black/10 shadow-sm cursor-pointer hover:border-gray-400 transition"
+            defaultValue="English"
+          >
+            {languages.map((lang) => (
+              <option key={lang} value={lang}>
+                {lang}
+              </option>
+            ))}
           </select>
           {/* Custom Arrow Icon */}
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
@@ -68,9 +102,9 @@ const Search = () => {
           </div>
         </div>
 
-        {/* Right Dropdown */}
-        <div className="relative group">
-          <select className="appearance-none bg-white border border-gray-300 text-gray-700 text-sm rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-black/10 shadow-sm cursor-pointer hover:border-gray-400 transition">
+        {/* Right Dropdown (Voices) */}
+        <div className="relative group w-[48%]">
+          <select className="w-full appearance-none bg-white border border-gray-300 text-gray-700 text-sm rounded-lg pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-black/10 shadow-sm cursor-pointer hover:border-gray-400 transition">
             <option value="Idera">Idera (Female)</option>
             <option value="Jude">Jude (Male)</option>
             <option value="Emma">Emma (Female)</option>
@@ -79,7 +113,7 @@ const Search = () => {
             <option value="Remi">Remi (Female)</option>
             <option value="Tayo">Tayo (Male)</option>
           </select> 
-          
+
           {/* Custom Arrow Icon */}
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
             <svg
