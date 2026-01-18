@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onClose, onSwitchToSignup }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (email === 'admin@user.com' && password === 'qwerty') {
+      onClose();
+      navigate('/admin');
+    } else {
+      alert('Invalid credentials');
+    }
+  };
+
   return (
     <div className="bg-white w-full max-w-[400px] p-10 rounded-xl shadow-lg relative text-center">
 
@@ -68,12 +83,22 @@ const Login = ({ onClose, onSwitchToSignup }) => {
       </div>
 
       {/* Form */}
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={handleSubmit}>
         <input 
           type="email" 
           placeholder="Email address" 
           className="w-full p-4 border border-gray-300 rounded-[30px] text-base mb-3 focus:outline-none focus:border-black transition-colors"
           required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input 
+          type="password" 
+          placeholder="Password" 
+          className="w-full p-4 border border-gray-300 rounded-[30px] text-base mb-3 focus:outline-none focus:border-black transition-colors"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button 
           type="submit" 
