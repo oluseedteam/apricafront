@@ -8,11 +8,13 @@ const Login = ({ onClose, onSwitchToSignup }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (email === 'admin@user.com' && password === 'qwerty') {
-      onClose();
-      navigate('/admin');
+    
+    // --- ADMIN CREDENTIALS CHECK ---
+    if (email === 'admin@com' && password === 'admin') {
+      onClose(); // Close the modal
+      navigate('/admin'); // Redirect to Dashboard
     } else {
-      alert('Invalid credentials');
+      alert('Invalid credentials. For demo, use: admin@com / admin');
     }
   };
 
