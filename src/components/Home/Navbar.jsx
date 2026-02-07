@@ -4,28 +4,13 @@ import Login from "./Login";
 import Signup from "./Signup";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false); // Mobile menu state
-  const [isModalOpen, setIsModalOpen] = useState(false); // Auth Modal state
-  const [authView, setAuthView] = useState("login"); // 'login' or 'signup'
+  const [open, setOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [authView, setAuthView] = useState("login"); 
 
-  // Open Login Modal
-  const openLogin = () => {
-    setAuthView("login");
-    setIsModalOpen(true);
-    setOpen(false);
-  };
-
-  // Open Signup Modal
-  const openSignup = () => {
-    setAuthView("signup");
-    setIsModalOpen(true);
-    setOpen(false);
-  };
-
-  // Close Modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const openLogin = () => { setAuthView("login"); setIsModalOpen(true); setOpen(false); };
+  const openSignup = () => { setAuthView("signup"); setIsModalOpen(true); setOpen(false); };
+  const closeModal = () => { setIsModalOpen(false); };
 
   const navLinks = [
     { name: "About", href: "#about" },
@@ -42,6 +27,7 @@ export default function Navbar() {
       <header className="bg-white text-black sticky top-0 z-50" style={{ fontFamily: 'var(--font-dm-sans)' }}>
         <nav className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3 items-center h-16">
+            
             {/* Left: Brand */}
             <div className="flex items-center">
               <a href="#" className="flex items-center gap-3">
@@ -60,9 +46,8 @@ export default function Navbar() {
             </div>
 
             {/* Right: Actions */}
-            <div className="flex justify-end items-center gap-3">
+            <div className="flex justify-end items-center">
               <div className="hidden md:flex items-center gap-3">
-                {/* CHANGED TO BUTTONS (Fixed: Prevents page reload) */}
                 <button 
                   onClick={openLogin}
                   className="px-4 py-1 rounded-full text-sm text-black hover:bg-black/5 transition cursor-pointer"
@@ -105,13 +90,16 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
-              <div className="flex gap-3">
-                <button onClick={openLogin} className="flex-1 text-center px-4 py-2 border border-black text-black rounded-full">
-                  Log in
-                </button>
-                <button onClick={openSignup} className="flex-1 text-center px-4 py-3 bg-black text-white rounded-full">
-                  Sign up for free
-                </button>
+              
+              <div className="flex flex-col gap-3">
+                <div className="flex gap-3">
+                  <button onClick={openLogin} className="flex-1 text-center px-4 py-2 border border-black text-black rounded-full">
+                    Log in
+                  </button>
+                  <button onClick={openSignup} className="flex-1 text-center px-4 py-3 bg-black text-white rounded-full">
+                    Sign up for free
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -120,16 +108,12 @@ export default function Navbar() {
 
       {/* MODAL OVERLAY */}
       {isModalOpen && (
-        // Fixed: z-[1000] ensures it is on top of EVERYTHING
         <div className="fixed inset-0 z-[1000] flex items-center justify-center">
-
-          {/* Dark Backdrop */}
           <div 
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={closeModal}
           ></div>
 
-          {/* Modal Content */}
           <div className="relative z-[1010] w-full max-w-[400px] mx-4">
             {authView === 'login' ? (
               <Login 
