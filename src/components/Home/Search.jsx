@@ -46,6 +46,7 @@ const Search = () => {
       </div>
 
       {/* --- Dropdowns Row --- */}
+      
       <div className="flex justify-between w-full max-w-xl px-2">
 
         {/* Left Dropdown */}
