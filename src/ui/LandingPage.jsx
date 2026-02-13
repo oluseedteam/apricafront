@@ -1,6 +1,6 @@
 import React from 'react'
 import { About } from '../components/Home/About'
-import Search from '../components/Home/search'
+import Search from '../components/Home/Search'
 import InputSelector from '../components/Home/InputSelector' 
 import AudioPlayer from '../components/Home/AudioPlayer'
 import TrustedBy from '../components/Home/TrustedBy'
