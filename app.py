@@ -105,7 +105,7 @@ def _translate(text, target_lang):
 # ── HOME ──────────────────────────────────────────────────────────────
 @app.route('/')
 def index():
-    return render_template('index.html', languages=LANGUAGES, voices=VOICE_PROFILES)
+    return jsonify({"message": "APRICA API is running", "version": "1.0.0"})
 
 # ── FEATURE 1: TEXT TRANSLATION ───────────────────────────────────────
 @app.route('/api/translate/text', methods=['POST'])
